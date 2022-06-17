@@ -9,7 +9,6 @@ import no.nav.rapid.Question
  * QuizApplication
  *
  * Her skal teamet bygge ut funksjonalitet for å løse oppgavene i leesah-game.
- * Sπ
  */
 class QuizApplication(teamName: String): QuizParticipant(teamName) {
 
