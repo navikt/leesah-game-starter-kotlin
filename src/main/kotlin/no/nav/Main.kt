@@ -5,10 +5,13 @@ import io.ktor.serialization.jackson.*
 import io.ktor.server.application.*
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
+import io.ktor.server.plugins.callloging.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import no.nav.rapid.Assessment
 import no.nav.rapid.Config
+import no.nav.rapid.Question
 import no.nav.rapid.RapidServer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -23,11 +26,22 @@ fun main() {
 }
 
 fun ktorServer(appName: String, isReady: () -> Boolean): ApplicationEngine = embeddedServer(CIO, applicationEngineEnvironment {
+
+    /**
+     * Konfigurasjon av Webserver (Ktor https://ktor.io/)
+     */
+    log = logger
     connector {
         port = 8080
     }
     module {
         install(ContentNegotiation) { jackson() }
+        install(CallLogging)
+
+
+        /**
+         * Konfigurasjon av endepunkt
+         */
 
         routing {
 
@@ -46,10 +60,10 @@ fun ktorServer(appName: String, isReady: () -> Boolean): ApplicationEngine = emb
             }
 
             get("/alive") {
-                call.respond("OK")
+                call.respondText("OK")
             }
             get("/ready") {
-                if (isReady()) call.respond("OK") else call.respond(HttpStatusCode.ServiceUnavailable)
+                if (isReady()) call.respondText("OK") else call.respond(HttpStatusCode.ServiceUnavailable)
             }
 
         }
@@ -57,6 +71,13 @@ fun ktorServer(appName: String, isReady: () -> Boolean): ApplicationEngine = emb
 
 })
 
+fun Logger.log(question: Question) {
+    info("[Question] category: {}, question: {}, id: {}", question.category, question.question, question.id())
+}
+
+fun Logger.log(assessment: Assessment) {
+    info("[Assessment] category: {}, questionId: {}, status: {}", assessment.category, assessment.questionId, assessment.status)
+}
 
 
 

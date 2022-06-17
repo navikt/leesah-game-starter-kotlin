@@ -4,13 +4,20 @@ import no.nav.quizrapid.*
 import no.nav.rapid.Assessment
 import no.nav.rapid.Question
 
+
+/**
+ * QuizApplication
+ *
+ * Her skal teamet bygge ut funksjonalitet for å løse oppgavene i leesah-game.
+ * Sπ
+ */
 class QuizApplication(teamName: String): QuizParticipant(teamName) {
 
     override fun handle(question: Question) {
-        println(question)
+        logger.log(question)
     }
 
     override fun handle(assessment: Assessment) {
-        println(assessment)
+        logger.log(assessment)
     }
 }
