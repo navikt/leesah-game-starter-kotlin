@@ -28,14 +28,21 @@
 └──────────────┘                 └──────────────┘
 ```
 
+## Prerequisites
+- Java 17
+- IDEA 
+  - Plugins: [Kotlin](https://plugins.jetbrains.com/plugin/6954-kotlin), [Co-Author](https://plugins.jetbrains.com/plugin/10952-co-author)
+- Gradle 7.x.x
+
+For Java and Gradle [SDKman](https://sdkman.io/) is recommended for installing.
+
 ## Setup 📝
 
-To get started, either clone with git or download the repository:
+1. Click the [Use this template] button located on: https://github.com/navikt/leesah-game-starter-kotlin
+2. Create a new public repository from the template with your team name with the navikt organisation as owner.
+3. Clone your repository to your local machine
+   - `git clone https://github.com/navikt/<your repository name>.git`
 
-**git clone**
-```
-git clone https://github.com/navikt/leesah-game-starter.git
-```
 
 ## Developing your quiz participant 🤖
 
@@ -56,5 +63,8 @@ From the command-line in the project root run:
 ```bash
 java -jar build/libs/app.jar
 ```
+
+## First task
+Deploy the application to NAIS!
 
 Good luck! Remember to ask questions! ❤️
