@@ -47,7 +47,7 @@ class QuizRapid(
     private val participant: QuizParticipant = nooParticipant,
     private val run: QuizRapid.(records: ConsumerRecords<String, String>) -> Unit = {}
 ) {
-    private val consumer = KafkaConsumer(config.consumerConfig(clientId, config.autoCommit), StringDeserializer(), StringDeserializer())
+    private val consumer = KafkaConsumer(config.consumerConfig(clientId, config.consumerGroup, config.autoCommit), StringDeserializer(), StringDeserializer())
     private val producer = KafkaProducer(config.producerConfig(clientId), StringSerializer(), StringSerializer())
     private val logger = LoggerFactory.getLogger(QuizRapid::class.java)
 

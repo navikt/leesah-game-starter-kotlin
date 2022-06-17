@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory
 
 class RapidServer(
     config: Config,
-    private val ktor: ApplicationEngine,
+    builder: (String, () -> Boolean) -> ApplicationEngine,
     participant: QuizParticipant = nooParticipant,
     run: QuizRapid.(records: ConsumerRecords<String, String>) -> Unit = {}
 ) {
@@ -25,6 +25,7 @@ class RapidServer(
         participant = participant,
         run = run
     )
+    private val ktor = builder(config.appName, quizRapid::isRunning)
 
     fun startBlocking() {
         runBlocking { start() }
