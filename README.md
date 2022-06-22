@@ -41,7 +41,7 @@ For Java and Gradle [SDKman](https://sdkman.io/) is recommended for installing.
 1. Click the [Use this template] button located on: https://github.com/navikt/leesah-game-starter-kotlin
 2. Create a new public repository from the template with your team name with the navikt organisation as owner.
 3. Clone your repository to your local machine
-   - `git clone https://github.com/navikt/<your repository name>.git`
+   - `git clone git@github.com:navikt/<your repository name>.git`
 
 
 ## Developing your quiz participant 🤖
