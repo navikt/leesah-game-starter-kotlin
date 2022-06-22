@@ -21,7 +21,7 @@ import no.nav.rapid.RapidServer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-lateinit var logger: Logger
+var logger: Logger = LoggerFactory.getLogger("Application")
 
 fun main() {
     val config = Config.fromEnv()

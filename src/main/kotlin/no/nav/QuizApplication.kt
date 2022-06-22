@@ -14,9 +14,20 @@ class QuizApplication(private val teamName: String): QuizParticipant(teamName) {
 
     override fun handle(question: Question) {
         logger.log(question)
+        if (question.category == "team-registration") handleRegisterTeam(question)
     }
+
 
     override fun handle(assessment: Assessment) {
         logger.log(assessment)
     }
+
+    /**
+     * Spørsmål handlers
+     */
+
+    private fun handleRegisterTeam(question: Question) {
+        TODO("Her må du skrive kode ;)")
+    }
+
 }
