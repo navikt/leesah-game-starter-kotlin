@@ -45,13 +45,6 @@ fun ktorServer(appName: String, isReady: () -> Boolean): ApplicationEngine = emb
 
         routing {
 
-            get("/hello") {
-                call.respondText("Hello")
-            }
-
-            get("/secure") { call.respondText("Secure endpoint") }
-
-
             get("/") {
                 call.respondText(
                     "<html><h1>$appName</h1><html>",
@@ -59,6 +52,19 @@ fun ktorServer(appName: String, isReady: () -> Boolean): ApplicationEngine = emb
                 )
             }
 
+            get("/hello") {
+                call.respondText("Hello")
+            }
+
+            /**
+             * For senere oppgaver
+             */
+            get("/secure") { call.respondText("Secure endpoint") }
+
+
+            /**
+             * Nais endepunkt
+             */
             get("/isalive") {
                 call.respondText("OK")
             }
