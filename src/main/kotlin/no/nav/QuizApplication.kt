@@ -10,7 +10,7 @@ import no.nav.rapid.Question
  *
  * Her skal teamet bygge ut funksjonalitet for å løse oppgavene i leesah-game.
  */
-class QuizApplication(teamName: String): QuizParticipant(teamName) {
+class QuizApplication(private val teamName: String): QuizParticipant(teamName) {
 
     override fun handle(question: Question) {
         logger.log(question)
