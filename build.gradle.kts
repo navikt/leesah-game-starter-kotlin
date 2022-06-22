@@ -2,6 +2,10 @@ val ktorVersion = "2.0.2"
 val kafkaVersion = "3.1.0"
 val junitJupiterVersion = "5.8.2"
 val kotlinVersion = "1.6.20"
+val flywayVersion = "8.5.12"
+val hikariVersion = "5.0.1"
+val postgresqlVersion = "42.3.6"
+val kotliqueryVersion = "1.8.0"
 
 
 plugins {
@@ -67,6 +71,11 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.3")
     implementation("com.fasterxml.jackson.core:jackson-core:2.13.3")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3")
+
+    implementation("org.postgresql:postgresql:$postgresqlVersion")
+    implementation("com.zaxxer:HikariCP:$hikariVersion")
+    implementation("com.github.seratch:kotliquery:$kotliqueryVersion")
+    implementation("org.flywaydb:flyway-core:$flywayVersion")
 
 
     implementation("org.slf4j:slf4j-api:1.7.36")
