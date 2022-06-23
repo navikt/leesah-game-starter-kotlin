@@ -6,7 +6,9 @@ val flywayVersion = "8.5.12"
 val hikariVersion = "5.0.1"
 val postgresqlVersion = "42.3.6"
 val kotliqueryVersion = "1.8.0"
-
+val hikariCPVersion = "5.0.1"
+val flywaycoreVersion = "8.5.12"
+val postgressqlVersion = "42.3.6"
 
 plugins {
     kotlin("jvm") version "1.6.20"
@@ -87,6 +89,11 @@ dependencies {
 
     api("io.ktor:ktor-server-metrics-micrometer:$ktorVersion")
     api("io.micrometer:micrometer-registry-prometheus:1.9.0")
+
+    implementation("com.zaxxer:HikariCP:$hikariCPVersion")
+    implementation("org.flywaydb:flyway-core:$flywaycoreVersion")
+    implementation("com.github.seratch:kotliquery:$kotliqueryVersion")
+    implementation("org.postgresql:postgresql:$postgressqlVersion")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
